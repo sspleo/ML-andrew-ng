@@ -1,3 +1,6 @@
+%%%%%%%%%%%%%%%%%%%%%%
+%% Basic Operations %%
+%%%%%%%%%%%%%%%%%%%%%%
 1 == 2 % false
 1 ~= 2 % true
 1 && 0 % and
@@ -53,7 +56,9 @@ length(v)
 
 length([1;2;3;4;5])
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% Moving Data Around %%
+%%%%%%%%%%%%%%%%%%%%%%%%
 
 % loading data
 load featuresX.dat
@@ -70,6 +75,10 @@ clears
 whoswho
 load hello.txt v -ascii % save as human readable text
 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Computing on Data %%
+%%%%%%%%%%%%%%%%%%%%%%%
 A = [1 2; 3 4; 5 6]
 A(3,2)
 
@@ -128,4 +137,23 @@ rand(3)
 
 max(A, [], 1) % maximum values of each columns
 max(A, [], 2) % maximum values of each rows
+max(A) % = max(A, [], 1)
+max(max(A)) % = max(A(:))
 
+A = magic(9)
+sum(A,1) % column-wise sum
+sum(A,2) % row-wise sum
+eye(9)
+A .* eye(9) % diagonal elementss
+sum(sum(A.*eye(9)))
+
+flipud(eye(9)) % flip the diagonal upside down
+fliplr(eye(9)) % flip the diagonal left to right
+help flip
+
+round(pinv(A) * A)
+
+
+%%%%%%%%%%%%%%%%%%%
+%% Plotting Data %%
+%%%%%%%%%%%%%%%%%%%
