@@ -157,3 +157,115 @@ round(pinv(A) * A)
 %%%%%%%%%%%%%%%%%%%
 %% Plotting Data %%
 %%%%%%%%%%%%%%%%%%%
+t = [0:0.01:0.98];
+y1 = sin(2*pi*4*t);
+plot(t, y1);
+y2 = cos(2*pi*4*t);
+hold on
+plot(t, y2, 'r');
+xlabel('time')
+ylabel('value')
+legend('sin', 'cos')
+title('my plot')
+print -dpng 'myPlot.png'
+% cd '/users/leoseo/...'; print -dpng 'myPlot.png'
+
+help plot
+close
+
+figure(1) : plot(t, y1);
+figure(2) : plot(t, y2);
+subplot(1,2,1); % divides plot a 1*2 grid, acces first element
+
+%%
+figure(1,"position",get(0,"screensize"))
+
+x = linspace(-2*pi, 2*pi, 1000);
+y = sin(x);
+plot(x, y, 'LineWidth', 5)
+grid on
+
+figure(1, 'position', [300, 200, 560, 420])
+%%
+
+subplot(1,2,1);
+plot(t,y1)
+subplot(1,2,2);
+plot(t,y2)
+plot([0.5 1 -1 1])
+clf
+
+A = magic(5)
+imagesc(A)
+imagesc(A), colorbar, colormap gray;
+A(1,2)
+A(4,5)
+A(1,3)
+
+imagesc(magic(15)), colorbar, colormap gray;
+
+a=1, b=2, c= 3 % comma changing function calls
+a=1; b=2; c=3; 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% Control Statements %%
+%%%% for, while, if %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+v = zeros(10,1)
+for i = 1:10,
+    v(i) = 2^i;
+end;
+v
+
+indices = 1:10;
+indices
+for i = indices,
+    disp(i);
+end;
+
+%while
+i = 1;
+while i <= 5;
+    v(i) = 100;
+    i = i+1;
+end;
+
+i = 1;
+while true,
+    v(i) = 999;
+    i= i+1;
+    if i==6,
+        break;
+    end;
+end;
+
+v(1) = 2;
+if v(1) ==1,
+    disp('The value is one');
+elseif v(1) ==2,
+    disp('The value is two');
+else
+    disp('The value is not one or two.');
+end;
+
+squareThisNumber(5)
+
+% Octave search path (advanced/optional)
+addpath('/users/leoseo/code/ML')
+cd '/users/leoseo/code/ML/octave'
+
+[a,b] = squareAndCubeThisNumber(5);
+
+
+X = [1 1; 1 2; 1 3]
+y = [1 ; 2; 3]
+
+theta = [0;1];
+
+
+j = costFunctionJ(X,y,theta)
+
+theta = [0;0];
+
+
