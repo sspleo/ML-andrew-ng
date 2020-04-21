@@ -21,8 +21,16 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+% X * Theta1' = 5000-by-25 matrix
+% [ones(m,1) X*Theta1'] = 5000-by-26 matrix
+% [ones(m,1) X*Theta1'] * Theta2' = 5000-by-10 matrix
+X = [ones(m,1) X];
 
+a2 = [ones(m,1) sigmoid(X*Theta1')];
+a3 = sigmoid(a2*Theta2');
 
+[M,I] = max(a3, [], 2);
+p = I;
 
 
 
