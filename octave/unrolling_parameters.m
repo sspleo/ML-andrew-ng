@@ -19,14 +19,21 @@ fminunc(@costFunction, initialTheeta, options)
 function [jVal, gradient] = costFunction(theta)
 
 %% gradient checking
-
+EPSILON = 1e-4;
 for i = 1:n,
     thetaPlus = theta;
     thetaPlus(i) = thetaPlus(i) + EPSILON;
+    %thetaPlus(i) += EPSILON;
     thetaMinus = theta;
     thetaMinus(i) = thetaMinus(i) - EPSILON;
+    %thetaMinus(i) -=EPSILON;
     gradApprox(i) = (J(thetaPlus)-J(thetaMinus))/(2*EPSILON);
 end;
 
 %Check that gradApprox is similar to DVec(from backprop)
 gradApprox - DVec
+
+
+%% Random Initialization : Symmetry Breaking
+Theta1 = rand(10,11) * (2*INIT_EPSILON) - INIT_EPSILON;
+Theta2 = rand(1,11) * (2*INIT_EPSILON) - INIT_EPSILON;
