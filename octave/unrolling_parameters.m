@@ -37,3 +37,5 @@ gradApprox - DVec
 %% Random Initialization : Symmetry Breaking
 Theta1 = rand(10,11) * (2*INIT_EPSILON) - INIT_EPSILON;
 Theta2 = rand(1,11) * (2*INIT_EPSILON) - INIT_EPSILON;
+
+2(1.01)^4 - 2(0.99)^4
