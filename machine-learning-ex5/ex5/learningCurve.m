@@ -52,8 +52,15 @@ error_val   = zeros(m, 1);
 %
 
 % ---------------------- Sample Solution ----------------------
-
-
+for i = 1:m
+    [theta] = trainLinearReg(X(1:i,:), y(1:i,:), lambda);
+    error_train(i) = linearRegCostFunction(X(1:i,:), y(1:i,:), theta, 0);
+    error_val(i) = linearRegCostFunction(Xval, yval, theta, 0);
+    
+    % this code does not work, since the m values are vary on the number of elements in each test.
+    %error_train(i) = 1/(2*m)*(X(1:i,:)*theta-y(1:i,:))'*(X(1:i,:)*theta-y(1:i,:));
+    %error_val(i) = 1/(2*m)*(Xval*theta-yval)'*(Xval*theta-yval);
+end;
 
 
 
