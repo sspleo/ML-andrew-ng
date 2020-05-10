@@ -27,6 +27,10 @@ centroids = zeros(K, n);
 %
 
 
+for i = 1:size(centroids,1)
+    centroids(i,:) = 1/sum(idx==i)*sum(X.*(idx==i));
+end
+
 
 
 
